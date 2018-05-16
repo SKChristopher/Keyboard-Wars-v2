@@ -1,5 +1,6 @@
-html {
+body {
   background-color: black;
+  margin: 0;
 }
 
 .background-image {
@@ -54,8 +55,9 @@ html {
 }
 
 .white-text {
-  color: white;
+  color: #ffffff;
 }
+
 #movie-list {
   text-align: center;
   display: flex;
@@ -66,5 +68,27 @@ html {
   }
   .movie-img {
     width: 250px;
+  }
+}
+
+.trailer-div {
+  position: fixed;
+  // justify-content: center;
+  // height: 100%;
+  width: 100%;
+  height: 100%;
+  #close-button {
+    background-color: grey;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    height: 35px;
+    cursor: pointer;
+  }
+  .trailer {
+    // overflow: hidden;
+    // position: absolute;
+    // height: 100%;
+    // width: 100%;
   }
 }

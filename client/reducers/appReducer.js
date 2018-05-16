@@ -5,42 +5,79 @@ const initialState = {
   counter: 0,
   inType: "sign",
   loggedIn: false,
+  watching: false,
   movies: {
     Avengers: {
       img:
         "http://t2.gstatic.com/images?q=tbn:ANd9GcQoBtRhueP0Kn_O7e89DXSBKBUz-1Nu4Ngb9eqFzqF3EbPGWYVP",
       title: "Avengers",
-      trailer: "https://www.youtube.com/watch?v=QwievZ1Tx-8"
+      trailer: "https://www.youtube.com/embed/QwievZ1Tx-8"
     },
     "Isle of Dogs": {
       img:
         "http://t0.gstatic.com/images?q=tbn:ANd9GcTlfoV5kQt5-R8rsorM0EIFLABrhl2Fjw8ODib_tHAM3QJUAeB8",
       title: "Isle of Dogs",
-      trailer: "https://www.youtube.com/watch?v=dt__kig8PVU"
+      trailer: "https://www.youtube.com/embed/dt__kig8PVU"
     },
     "Ready Player One": {
       img:
         "http://t0.gstatic.com/images?q=tbn:ANd9GcQsdKo9kNvc88uK7_G6cxhPQcqd2pjP5W__NKQ8HNU0-gWn9-fa",
       title: "Ready Player One",
-      trailer: "https://youtu.be/cSp1dM2Vj48"
+      trailer: "https://www.youtube.com/embed/cSp1dM2Vj48"
     },
     "Black Panther": {
       img:
         "http://t1.gstatic.com/images?q=tbn:ANd9GcQPpcKQ9eWZGxJe6eXyCW91eayLVm4KqruvJz3GP0F2T2w46yKZ",
       title: "Black Panther",
-      trailer: "https://youtu.be/xjDjIWPwcPU"
+      trailer: "https://youtube.com/embed/xjDjIWPwcPU"
     },
     Rampage: {
       img: "https://www.mtdemocrat.com/files/2018/04/Rampage-poster.jpg",
       title: "Rampage",
-      trailer: "https://youtu.be/coOKvrsmQiI"
+      trailer: "https://youtube.com/embed/coOKvrsmQiI"
+    },
+    "Life of the Party": {
+      img:
+        "http://t1.gstatic.com/images?q=tbn:ANd9GcRqSb2Bwyez4onPd1X5Z1PPJxYIZQ_aUVF_fEC8wObm1HzKwvps",
+      title: "Life of the Party",
+      trailer: "https://youtube.com/embed/T1B1CxmAXLk"
+    },
+    "Truth or Dare": {
+      img:
+        "http://t1.gstatic.com/images?q=tbn:ANd9GcRUejO8nuOTtu-88efaopbJJ4rnl0wrfzVWFfvOitxnUo45bcMj",
+      title: "Truth or Dare",
+      trailer: "https://youtube.com/embed/BjRNY3u3bUw"
+    },
+    "Tomb Raider": {
+      img:
+        "http://t1.gstatic.com/images?q=tbn:ANd9GcQGBx-FI1Xp1Xk9raKVhCrW2pj-vBUpbjfY5liEfDmU2DzKV-Uf",
+      title: "Tomb Raider",
+      trailer: "https://youtube.com/embed/8ndhidEmUbI"
+    },
+    Solo: {
+      img:
+        "https://upload.wikimedia.org/wikipedia/he/thumb/b/b8/SoloPoster.jpg/1200px-SoloPoster.jpg",
+      title: "Solo",
+      trailer: "https://youtube.com/embed/jPEYpryMp2s"
+    },
+    "Incredibles 2": {
+      img:
+        "http://t1.gstatic.com/images?q=tbn:ANd9GcToVxv9Pjks-gNiQo7xdCsU8kAzgbHfHd3c6PC9tWKe2RgXBlkI",
+      title: "Incredibles 2",
+      trailer: "https://youtube.com/embed/i5qOzqD9Rms"
+    },
+    Pandas: {
+      img:
+        "http://t3.gstatic.com/images?q=tbn:ANd9GcRrMWKv80SCKpXh5HCzigBlFW8Q5Otg_L-GmldwtgyNkR5MbDt1",
+      title: "Pandas",
+      trailer: "https://youtube.com/embed/r3eaGCk2Acs"
     }
   },
   currentMovie: {
     movie: {
       img: "https://www.mtdemocrat.com/files/2018/04/Rampage-poster.jpg",
       title: "Rampage",
-      trailer: "https://youtu.be/coOKvrsmQiI"
+      trailer: "https://youtube.com/embed/coOKvrsmQiI"
     }
   }
 };
@@ -49,6 +86,7 @@ const appReducer = (state = initialState, action) => {
   let loggedIn;
   let inType;
   let currentMovie;
+  let watching;
 
   switch (action.type) {
     case types.ADD_USER:
@@ -103,8 +141,9 @@ const appReducer = (state = initialState, action) => {
       return { ...state, inType };
 
     case types.WATCH_TRAILER:
-      currentMovie = state.movies[0];
-      return { ...state, currentMovie };
+      currentMovie = state.movies[action.payload.event.target.id];
+      watching = true;
+      return { ...state, currentMovie, watching };
 
     default:
       return state;

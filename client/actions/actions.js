@@ -23,5 +23,7 @@ export const updateInType = inType => ({
 
 export const watchTrailer = () => ({
   type: types.WATCH_TRAILER,
-  payload: 'string'
+  payload: {
+    event: event,
+  }
 });
