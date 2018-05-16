@@ -27,14 +27,25 @@ const Signup = props => {
   }
 
   return (
-    <div class="user-form">
-      <form onSubmit={submit}>
-        <input name="username" placeholder="username" />
-        <br />
-        <input name="password" placeholder="password" type="password" />
-        <br />
-        <button>{buttonText}</button>
-      </form>
+    <div>
+      <img
+        class="background-image"
+        src="https://www.hdwallpapers.in/download/hong_kong-wide.jpg"
+      />
+      <div class="user-form">
+        <form onSubmit={submit}>
+          <input id="username" name="username" placeholder="username" />
+          <br />
+          <input
+            id="password"
+            name="password"
+            placeholder="password"
+            type="password"
+          />
+          <br />
+          <button>{buttonText}</button>
+        </form>
+      </div>
     </div>
   );
 };

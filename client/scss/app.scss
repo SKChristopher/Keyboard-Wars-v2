@@ -1,11 +1,21 @@
 html {
-  background-color: lightblue;
+  background-color: black;
+}
+
+.background-image {
+  height: 125%;
+  width: 125%;
+  min-width: 1000px;
+  margin: -56px;
+  position: fixed;
+  top: 0;
+  z-index: -5;
 }
 
 .user-form {
   position: relative;
   z-index: 1;
-  background: #ffffff;
+  background-color: rgba(0, 0, 0, 0.6);
   max-width: 360px;
   margin: 10% auto 100px;
   padding: 45px;
@@ -40,5 +50,5 @@ html {
 .user-form button:hover,
 .user-form button:active,
 .user-form button:focus {
-  background: #BADA55;
+  background: #bada55;
 }

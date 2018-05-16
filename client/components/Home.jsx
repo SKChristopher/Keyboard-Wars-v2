@@ -14,6 +14,10 @@ const mapStateToProps = store => ({});
 
 const Home = props => (
   <div>
+    <img
+      class="background-image"
+      src="https://www.hdwallpapers.in/download/hong_kong-wide.jpg"
+    />
     <div onClick={() => props.updateInType("log")}>
       <Link to="/login">Click to login</Link>
     </div>
