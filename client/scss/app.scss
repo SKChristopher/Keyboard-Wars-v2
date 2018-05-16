@@ -52,3 +52,19 @@ html {
 .user-form button:focus {
   background: #bada55;
 }
+
+.white-text {
+  color: white;
+}
+#movie-list {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .movie-box {
+    margin: 25px;
+  }
+  .movie-img {
+    width: 250px;
+  }
+}

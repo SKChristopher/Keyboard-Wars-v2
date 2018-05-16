@@ -20,3 +20,8 @@ export const updateInType = inType => ({
   type: types.UPDATE_IN_TYPE,
   payload: inType
 });
+
+export const watchTrailer = () => ({
+  type: types.WATCH_TRAILER,
+  payload: 'string'
+});

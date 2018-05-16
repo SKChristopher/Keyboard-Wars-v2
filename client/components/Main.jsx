@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "./Home.jsx";
 import Signup from "./Signup.jsx";
+import UserHome from "./UserHome.jsx";
 
 const Main = () => (
   <main>
