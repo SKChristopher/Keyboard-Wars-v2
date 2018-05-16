@@ -11,7 +11,8 @@ const mapDispatchToProps = dispatch => {
 };
 
 const mapStateToProps = store => ({
-  inType: store.inType
+  inType: store.inType,
+  loggedIn: store.loggedIn,
 });
 
 let submit;

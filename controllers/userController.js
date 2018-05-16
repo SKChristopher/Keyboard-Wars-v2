@@ -17,6 +17,7 @@ userController.newUser = (req, res) => {
             req.body.password
           ])
           .then(() => console.log("new user created"))
+          .then(() => res.send(true))
           .catch(err => console.error(err.stack));
       } else console.log("Username taken.");
     });
@@ -26,9 +27,11 @@ userController.verifyUser = (req, res) => {
   db
     .query(`SELECT * FROM users WHERE username = '${req.body.username}'`)
     .then(data2 => {
-      if (data2.rows[0].password === req.body.password) {
+      if (data2.rows[0] && data2.rows[0].password === req.body.password) {
+        return console.log("ur in bud:", req.body.username);
       }
-    });
+    })
+    .then(() => res.send(true));
 };
 
 module.exports = userController;

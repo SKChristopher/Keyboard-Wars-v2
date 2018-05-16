@@ -1,35 +1,45 @@
 import * as types from "../constants/actionTypes";
-import axios from 'axios';
+import axios from "axios";
 
 const initialState = {
   counter: 0,
-  inType: "sign"
+  inType: "sign",
+  loggedIn: false,
 };
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_USER:
       action.payload.event.preventDefault();
-      axios.post('signup', {
-        username: event.target.username.value,
-        password: event.target.password.value
-      }).then(response => {
-          if (response) console.log('New user created:', response)
-          else console.log ('Error, account not created.');
-      });
+      axios
+        .post("signup", {
+          username: event.target.username.value,
+          password: event.target.password.value
+        })
+        .then(response => {
+          if (response) {
+            console.log("New user created:", response.data);
+            state.loggedIn = response.data;
+            return state;
+          } else {
+            console.log("Error, account not created.");
+            return state;
+          }
+        });
       event.target.username.value = "";
       event.target.password.value = "";
-      return state;
 
     case types.VERIFY_USER:
       action.payload.event.preventDefault();
-      axios.post('login', {
-        username: event.target.username.value,
-        password: event.target.password.value
-      }).then(response => {
-          if (response) console.log('User logged in:', response)
-          else console.log ('Error, cannot log in.');
-      });
+      axios
+        .post("login", {
+          username: event.target.username.value,
+          password: event.target.password.value
+        })
+        .then(response => {
+          if (response) console.log("User logged in:", response);
+          else console.log("Error, cannot log in.");
+        });
       event.target.username.value = "";
       event.target.password.value = "";
       return state;
