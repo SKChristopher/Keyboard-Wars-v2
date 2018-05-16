@@ -1,7 +1,9 @@
-const TYPE_1 = 'TYPE_1';
-const TYPE_2 = 'TYPE_2';
+const ADD_USER = "ADD_USER";
+const VERIFY_USER = "VERIFY_USER";
+const UPDATE_IN_TYPE = "UPDATE_IN_TYPE";
 
 module.exports = {
-    TYPE_1,
-    TYPE_2,
+  ADD_USER,
+  VERIFY_USER,
+  UPDATE_IN_TYPE
 };

@@ -1,11 +1,22 @@
 import * as types from "../constants/actionTypes";
 
-export const thing1 = param => ({
-    type: types.TYPE_1,
-    payload: 5,
+export const addUser = (event, inType) => ({
+  type: types.ADD_USER,
+  payload: {
+    event: event,
+    inType: inType
+  }
 });
 
-export const thing2 = param => ({
-  type: types.TYPE_2,
-  payload: 'string',
+export const verifyUser = (event, inType) => ({
+  type: types.VERIFY_USER,
+  payload: {
+    event: event,
+    inType: inType
+  }
+});
+
+export const updateInType = inType => ({
+  type: types.UPDATE_IN_TYPE,
+  payload: inType
 });
