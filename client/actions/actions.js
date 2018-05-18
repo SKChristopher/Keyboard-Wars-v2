@@ -27,3 +27,14 @@ export const watchTrailer = () => ({
     event: event,
   }
 });
+
+export const closeTrailer = () => ({
+  type: types.CLOSE_TRAILER,
+});
+
+export const addToFavorites = () => ({
+  type: types.ADD_TO_FAVORITES,
+  payload: {
+    event: event,
+  }
+});

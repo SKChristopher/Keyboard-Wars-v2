@@ -18,12 +18,14 @@ const Home = props => (
       class="background-image"
       src="https://www.hdwallpapers.in/download/hong_kong-wide.jpg"
     />
-    <div onClick={() => props.updateInType("log")}>
-      <Link to="/login">Click to login</Link>
-    </div>
-    <br />
-    <div onClick={() => props.updateInType("sign")}>
-      <Link to="/signup">Click to sign up</Link>
+    <div className="home-box">
+      <Link to="/login" style={{ textDecoration: 'none' }}>
+        <div onClick={() => props.updateInType("log")}>Click to login</div>
+      </Link>
+      <br />
+      <Link to="/signup" style={{ textDecoration: 'none' }}>
+        <div onClick={() => props.updateInType("sign")}>Click to sign up</div>
+      </Link>
     </div>
   </div>
 );

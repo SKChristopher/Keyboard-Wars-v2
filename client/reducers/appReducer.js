@@ -79,7 +79,8 @@ const initialState = {
       title: "Rampage",
       trailer: "https://youtube.com/embed/coOKvrsmQiI"
     }
-  }
+  },
+  favorites: []
 };
 
 const appReducer = (state = initialState, action) => {
@@ -87,6 +88,7 @@ const appReducer = (state = initialState, action) => {
   let inType;
   let currentMovie;
   let watching;
+  let favorites;
 
   switch (action.type) {
     case types.ADD_USER:
@@ -141,9 +143,18 @@ const appReducer = (state = initialState, action) => {
       return { ...state, inType };
 
     case types.WATCH_TRAILER:
-      currentMovie = state.movies[action.payload.event.target.id];
+      currentMovie = state.movies[action.payload.event.target.className];
       watching = true;
       return { ...state, currentMovie, watching };
+
+    case types.CLOSE_TRAILER:
+      watching = false;
+      return { ...state, watching };
+
+    case types.ADD_TO_FAVORITES:
+      favorites = state.favorites;
+      favorites.push(state.movies[action.payload.event.target.className]);
+      return { ...state, favorites };
 
     default:
       return state;
