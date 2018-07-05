@@ -103,6 +103,7 @@ const appReducer = (state = initialState, action) => {
           if (response) {
             console.log("New user created:", response.data);
             loggedIn = response.data;
+            action.payload.cb();
             return { ...state, loggedIn };
           } else {
             console.log("Error, account not created.");
@@ -125,6 +126,7 @@ const appReducer = (state = initialState, action) => {
           if (response) {
             console.log("User logged in:", response.data);
             loggedIn = true;
+            action.payload.cb();
             return { ...state, loggedIn };
           } else {
             console.log("Error, cannot log in.");

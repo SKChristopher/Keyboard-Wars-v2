@@ -1,18 +1,20 @@
 import * as types from "../constants/actionTypes";
 
-export const addUser = (event, inType) => ({
+export const addUser = (event, inType, cb) => ({
   type: types.ADD_USER,
   payload: {
     event: event,
-    inType: inType
+    inType: inType,
+    cb: cb
   }
 });
 
-export const verifyUser = (event, inType) => ({
+export const verifyUser = (event, inType, cb) => ({
   type: types.VERIFY_USER,
   payload: {
     event: event,
-    inType: inType
+    inType: inType,
+    cb: cb
   }
 });
 

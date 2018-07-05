@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 
 const mapDispatchToProps = dispatch => {
   return {
-    addUser: (event, inType) => dispatch(actions.addUser(event, inType)),
-    verifyUser: (event, inType) => dispatch(actions.verifyUser(event, inType))
+    addUser: (event, inType, cb) => dispatch(actions.addUser(event, inType, cb)),
+    verifyUser: (event, inType, cb) => dispatch(actions.verifyUser(event, inType, cb))
   };
 };
 
@@ -19,11 +19,12 @@ let submit;
 let buttonText;
 
 const Signup = props => {
+  const cb = () => props.history.push('userHome');
   if (props.inType === "sign") {
-    submit = props.addUser;
+    submit = (event) => props.addUser(event, props.inType, cb);
     buttonText = "Sign up";
   } else {
-    submit = props.verifyUser;
+    submit = (event) => props.verifyUser(event, props.inType, cb);
     buttonText = "Log in";
   }
 
